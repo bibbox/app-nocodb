@@ -53,7 +53,7 @@ services:
     healthcheck: 
       interval: 10s
       retries: 10
-      test: "pg_isready -U \"§§POSTGRES_USER\" -d \"§§POSTGRES_DB\""
+      test: "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""
       timeout: 2s
     image: postgres:15.1
     restart: unless-stopped
