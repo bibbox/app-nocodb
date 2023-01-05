@@ -8,7 +8,7 @@ services:
   §§INSTANCE-nocodb:
     container_name: §§INSTANCE-nocodb
     environment:
-      NC_DB: "pg://nocodb-db:5432?u=nocodb&p=password&d=nocodb"
+      NC_DB: "pg://nocodb-db:5432?u=§§POSTGRES_DATABASE_USER&p=§§POSTGRES_DATABASE_PASSWORD&d=nocodb"
     links:
     - §§INSTANCE-nocodb-db:nocodb-db
     depends_on: 
@@ -48,8 +48,8 @@ services:
   §§INSTANCE-nocodb-db:
     container_name: §§INSTANCE-nocodb-db
     environment:
-      POSTGRES_USER:     nocodb
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER:     §§POSTGRES_DATABASE_USER
+      POSTGRES_PASSWORD: §§POSTGRES_DATABASE_PASSWORD
       POSTGRES_DB: nocodb
     healthcheck: 
       interval: 10s
