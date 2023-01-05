@@ -1,0 +1,47 @@
+version: '3'
+services:
+  local-nocodb:
+    container_name: local-nocodb
+    environment:
+      NC_DB: "pg://nocodb-db:5432?u=nocodb&p=password&d=nocodb"
+    links:
+    - local-nocodb-db:nocodb-db
+    depends_on: 
+       local-nocodb-db: 
+        condition: service_healthy
+    image: nocodb/nocodb:latest
+    ports:
+    - 8010:8080
+    restart: unless-stopped
+    volumes: 
+      - ./data/nocodb/data:/usr/app/data
+
+  local-nocodb-adminer:
+    container_name: local-nocodb-adminer
+    environment:
+      ADMINER_DEFAULT_DB_DRIVER: postgres
+      ADMINER_DEFAULT_DB_HOST: nocodb-db
+      ADMINER_DEFAULT_DB_NAME: nocodb
+    image: adminer
+    links:
+    - local-nocodb-db:nocodb-db
+    ports:
+    - 8020:8080
+    restart: unless-stopped
+
+  local-nocodb-db:
+    container_name: local-nocodb-db
+    environment:
+      POSTGRES_USER:     nocodb
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: nocodb
+    healthcheck: 
+      interval: 10s
+      retries: 10
+      test: "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""
+      timeout: 2s
+    image: postgres:15.1
+    restart: unless-stopped
+    volumes:
+     - ./data/pgsql/data:/var/lib/postgresql/data
+
