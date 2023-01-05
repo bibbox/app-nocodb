@@ -12,7 +12,9 @@ Clone the github repsoitory. If necessary change the ports and volume mounts in 
 `git clone https://github.com/bibbox/app-nocodb`
 
 `cd app-nocodb`
+
 `mkdir data`
+
 `docker-compose up -d`
 
 The main app can be opened at 
