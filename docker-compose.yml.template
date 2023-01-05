@@ -42,7 +42,6 @@ services:
       URLPREFIX: §§INSTANCE-adminer
       TEMPLATE: default
       DISPLAYNAME: 'adminer' 
-  
     restart: unless-stopped
 
   §§INSTANCE-nocodb-db:
