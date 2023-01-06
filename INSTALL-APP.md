@@ -4,6 +4,8 @@
 
 The GUI of nocoDB can be accesed at http://nocodbappname.your.bibbox.domain/dashboard/ either in the setup or signin mode. The first user account made is the superadmin. Signup can be later restricted by the super admin to only invite URLs. 
 
+![SCREEN1](assets/setup-screen.png)
+
 ### e-mail configuration
 
 configuration of the email parameters can be tricky. if you need to test several configuration you can just edit the docker-compose.yml file, and restart the App. Finnaly this worked with mailjet. 
