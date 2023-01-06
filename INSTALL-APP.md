@@ -8,7 +8,7 @@ The GUI of nocoDB can be accesed at http://nocodbappname.your.bibbox.domain/dash
 
 ### e-mail configuration
 
-configuration of the email parameters can be tricky. if you need to test several configuration you can just edit the docker-compose.yml file, and restart the App. Finnaly this worked with mailjet. 
+Configuration of the email parameters can be tricky. if you need to test several configuration you can  edit the docker-compose.yml file and restart the App. Finnaly this worked with mailjet. 
 
 ```
       NC_SMTP_FROM: test@bibbox.org
