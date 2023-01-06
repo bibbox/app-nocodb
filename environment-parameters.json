@@ -16,5 +16,68 @@
 	   "description":"The Password of the postgres DB created for NOCODB",
 	   "min_length": "1",
 	   "max_length": "128"
-	}
+	},
+	{
+		"id":"NC_SMTP_FROM",
+		"display_name":"Email sender address",
+		"type":"text",
+		"default_value":"master@bibbox.org",
+		"description":"Email sender address",
+		"min_length": "1",
+		"max_length": "128"
+	 },
+	 {
+		"id":"NC_SMTP_HOST",
+		"display_name":"SMTP host",
+		"type":"text",
+		"default_value":"smtp.yoursmtphost.org",
+		"description":"SMTP host value",
+		"min_length": "1",
+		"max_length": "128"
+	 },
+	 {
+		"id":"NC_SMTP_PORT",
+		"display_name":"SMTP port",
+		"type":"text",
+		"default_value":"587",
+		"description":"SMTP port",
+		"min_length": "1",
+		"max_length": "128"
+	 },
+	 {
+		"id":"NC_SMTP_USERNAME",
+		"display_name":"SMTP username for authentication",
+		"type":"text",
+		"default_value":"master@bibbox.org",
+		"description":"SMTP username for authentication",
+		"min_length": "1",
+		"max_length": "128"
+	 },
+	 {
+		"id":"NC_SMTP_PASSWORD",
+		"display_name":"SMTP password for authentication",
+		"type":"password",
+		"default_value":"changeitforproduction",
+		"description":"SMTP password for authentication",
+		"min_length": "1",
+		"max_length": "128"
+	 },
+	 {
+		"id":"NC_SMTP_SECURE",
+		"display_name":"SMTP Secure",
+		"type":"text",
+		"default_value":"true",
+		"description":"To enable secure set  as true any other value treated as false",
+		"min_length": "1",
+		"max_length": "128"
+	 },
+	 {
+		"id":"NC_SMTP_IGNORE_TLS",
+		"display_name":"Ignore TLS",
+		"type":"text",
+		"default_value":"true",
+		"description":"To ignore tls set  as true any other value treated as false.",
+		"min_length": "1",
+		"max_length": "128"
+	 }
  ]

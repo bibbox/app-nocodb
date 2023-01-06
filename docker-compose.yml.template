@@ -12,6 +12,13 @@ services:
       - bibbox-default-network
     environment:
       NC_DB: "pg://nocodb-db:5432?u=§§POSTGRES_DATABASE_USER&p=§§POSTGRES_DATABASE_PASSWORD&d=nocodb"
+      NC_SMTP_FROM: §§NC_SMTP_FROM
+      NC_SMTP_HOST: §§NC_SMTP_HOST
+      NC_SMTP_PORT: §§NC_SMTP_PORT
+      NC_SMTP_USERNAME: §§NC_SMTP_USERNAME
+      NC_SMTP_PASSWORD: §§NC_SMTP_PASSWORD
+      NC_SMTP_SECUR: §§NC_SMTP_SECUR
+      NC_SMTP_IGNORE_TLS: §§NC_SMTP_IGNORE_TLS
     links:
     - §§INSTANCE-nocodb-db:nocodb-db
     depends_on: 
@@ -43,7 +50,7 @@ services:
     ports:
     - 8020:8080
     proxy:
-      TYPE: PRIMARY
+      TYPE: HELPER
       URLPREFIX: §§INSTANCE-adminer
       TEMPLATE: default
       DISPLAYNAME: 'adminer' 
