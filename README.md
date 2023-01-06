@@ -2,7 +2,7 @@
 
 NOCODB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-* initial user/passwordd is choosen at login
+* initial user/password is choosen at login
 * after the docker installation follow these [instructions](https://github.com/bibbox/app-seeddms/blob/master/INSTALL-APP.md)
 
 ## Standalone Installation

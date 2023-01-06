@@ -19,7 +19,3 @@ configuration of the email parameters can be tricky. if you need to test several
       NC_SMTP_USERNAME: ************************************
 ```
 
-## After the installation
-Have a nice ride with the Admins youngtimer.
-
-![FINAL](install-screen-final.jpg)
