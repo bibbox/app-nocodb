@@ -5,38 +5,58 @@ networks:
       external: true
 
 services:
- 
-  §§INSTANCE-nocodb-adminer:
-    container_name: §§INSTANCE-nocodb-adminer
-    environment:
-      ADMINER_DEFAULT_DB_DRIVER: postgres
-      ADMINER_DEFAULT_DB_HOST: nocodb-db
-      ADMINER_DEFAULT_DB_NAME: nocodb
-    image: adminer
+
+  §§INSTANCE-wordpress:
+    image: wordpress:latest
+    container_name:  §§INSTANCE-wordpress
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
     links:
-    - §§INSTANCE-nocodb-db:nocodb-db
-    ports:
-    - 8020:8080
+      - §§INSTANCE-wordpress-db:wordpress-db
     proxy:
-      TYPE: PRIMARY
-      URLPREFIX: §§INSTANCE-adminer
-      TEMPLATE: default
-      DISPLAYNAME: 'adminer' 
-    restart: unless-stopped
-
-  §§INSTANCE-nocodb-db:
-    container_name: §§INSTANCE-nocodb-db
+     TYPE: PRIMARY
+     URLPREFIX:  §§INSTANCE
+     TEMPLATE: default
+     DISPLAYNAME: 'Wordpress'
+    ports:
+      - "8010:80"
     environment:
-      POSTGRES_USER:     §§POSTGRES_DATABASE_USER
-      POSTGRES_PASSWORD: §§POSTGRES_DATABASE_PASSWORD
-      POSTGRES_DB: nocodb
-    healthcheck: 
-      interval: 10s
-      retries: 10
-      test: "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""
-      timeout: 2s
-    image: postgres:15.1
-    restart: unless-stopped
-    volumes:
-     - ./data/pgsql/data:/var/lib/postgresql/data
+      WORDPRESS_DB_HOST: wordpress-db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: §§MYSQL_USER
+      WORDPRESS_DB_PASSWORD: §§MYSQL_PASSWORD
 
+  §§INSTANCE-wordpress-db:
+    image: mariadb:10.1.21
+    container_name: §§INSTANCE-wordpress-db
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: §§MYSQL_ROOT_PASSWORD
+      MYSQL_USER: §§MYSQL_USER
+      MYSQL_PASSWORD: §§MYSQL_PASSWORD
+    volumes:
+      - ./database/mysql:/var/lib/mysql
+
+  §§INSTANCE-wordpress-adminer:
+    image: adminer
+    networks:
+      - bibbox-default-network
+    container_name: §§INSTANCE-wordpress-adminer
+    links:
+      - §§INSTANCE-wordpress-db:wordpress-db
+    restart: unless-stopped
+    ports:
+      - "8020:8080"
+    proxy:
+      TYPE: HELPER
+      URLPREFIX:  §§INSTANCE-adminer
+      TEMPLATE: default
+      DISPLAYNAME: 'Adminer'
+    environment:
+      ADMINER_DEFAULT_DB_DRIVER: mysql
+      ADMINER_DEFAULT_DB_HOST:   wordpress-db
+      ADMINER_DEFAULT_DB_NAME:   wordpress
