@@ -17,8 +17,8 @@ services:
       NC_SMTP_PORT: §§NC_SMTP_PORT
       NC_SMTP_USERNAME: §§NC_SMTP_USERNAME
       NC_SMTP_PASSWORD: §§NC_SMTP_PASSWORD
-      NC_SMTP_SECURE: §§NC_SMTP_SECURE
-      NC_SMTP_IGNORE_TLS: §§NC_SMTP_IGNORE_TLS
+      NC_SMTP_SECURE: "§§NC_SMTP_SECURE"
+      NC_SMTP_IGNORE_TLS: "§§NC_SMTP_IGNORE_TLS"
     links:
     - §§INSTANCE-nocodb-db:nocodb-db
     depends_on: 
