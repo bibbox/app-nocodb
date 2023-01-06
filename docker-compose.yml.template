@@ -6,34 +6,40 @@ networks:
 
 services:
 
-  §§INSTANCE-wordpress-db:
-    image: postgres:15.1
-    container_name: §§INSTANCE-wordpress-db
+  §§INSTANCE-nocodb-adminer:
+    networks:
+      - bibbox-default-network
+    container_name: §§INSTANCE-nocodb-adminer
+    environment:
+      ADMINER_DEFAULT_DB_DRIVER: postgres
+      ADMINER_DEFAULT_DB_HOST: nocodb-db
+      ADMINER_DEFAULT_DB_NAME: nocodb
+    image: adminer
+    links:
+    - §§INSTANCE-nocodb-db:nocodb-db
+    ports:
+    - 8020:8080
+    proxy:
+      TYPE: PRIMARY
+      URLPREFIX: §§INSTANCE-adminer
+      TEMPLATE: default
+      DISPLAYNAME: 'adminer' 
     restart: unless-stopped
+
+  §§INSTANCE-nocodb-db:
+    container_name: §§INSTANCE-nocodb-db
     networks:
       - bibbox-default-network
     environment:
       POSTGRES_USER:     §§POSTGRES_DATABASE_USER
       POSTGRES_PASSWORD: §§POSTGRES_DATABASE_PASSWORD
       POSTGRES_DB: nocodb
-    volumes:
-      - ./data/pgsql/data:/var/lib/postgresql/data
-
-  §§INSTANCE-wordpress-adminer:
-    image: adminer
-    networks:
-      - bibbox-default-network
-    container_name: §§INSTANCE-wordpress-adminer
-    links:
-      - §§INSTANCE-wordpress-db:wordpress-db
+    healthcheck: 
+      interval: 10s
+      retries: 10
+      test: "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""
+      timeout: 2s
+    image: postgres:15.1
     restart: unless-stopped
-    ports:
-      - "8020:8080"
-    proxy:
-      TYPE: PRIMARY
-      URLPREFIX:  §§INSTANCE-adminer
-      TEMPLATE: default
-      DISPLAYNAME: 'Adminer'
-    environment:
-      ADMINER_DEFAULT_DB_HOST:   wordpress-db
-      ADMINER_DEFAULT_DB_NAME:   wordpress
+    volumes:
+     - ./data/pgsql/data:/var/lib/postgresql/data
