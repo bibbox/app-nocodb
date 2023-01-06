@@ -1,9 +1,9 @@
-# NOCODB BIBBOX application
+# nocoDB BIBBOX application
 
-NOCODB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
+nocoDB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-* initial user/password is choosen at login
-* after the docker installation follow these [instructions](https://github.com/bibbox/app-seeddms/blob/master/INSTALL-APP.md)
+* Initial user/password is choosen at login
+* After the installation follow these [instructions](https://github.com/bibbox/app-nocodb/blob/master/INSTALL-APP.md)
 
 ## Standalone Installation
 
