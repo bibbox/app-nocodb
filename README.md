@@ -1,4 +1,4 @@
-# NOCODB BIBBOX application
+# nocoDB BIBBOX application
 
 NOCODB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
