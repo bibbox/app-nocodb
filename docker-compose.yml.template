@@ -6,27 +6,6 @@ networks:
 
 services:
 
-  §§INSTANCE-wordpress:
-    image: wordpress:latest
-    container_name:  §§INSTANCE-wordpress
-    restart: unless-stopped
-    networks:
-      - bibbox-default-network
-    links:
-      - §§INSTANCE-wordpress-db:wordpress-db
-    proxy:
-     TYPE: PRIMARY
-     URLPREFIX:  §§INSTANCE
-     TEMPLATE: default
-     DISPLAYNAME: 'Wordpress'
-    ports:
-      - "8010:80"
-    environment:
-      WORDPRESS_DB_HOST: wordpress-db:3306
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: §§MYSQL_USER
-      WORDPRESS_DB_PASSWORD: §§MYSQL_PASSWORD
-
   §§INSTANCE-wordpress-db:
     image: mariadb:10.1.21
     container_name: §§INSTANCE-wordpress-db
@@ -52,7 +31,7 @@ services:
     ports:
       - "8020:8080"
     proxy:
-      TYPE: HELPER
+      TYPE: PRIMARY
       URLPREFIX:  §§INSTANCE-adminer
       TEMPLATE: default
       DISPLAYNAME: 'Adminer'
