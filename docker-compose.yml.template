@@ -6,7 +6,7 @@ networks:
 
 services:
  
-   §§INSTANCE-nocodb-adminer:
+  §§INSTANCE-nocodb-adminer:
     container_name: §§INSTANCE-nocodb-adminer
     environment:
       ADMINER_DEFAULT_DB_DRIVER: postgres
