@@ -2,7 +2,7 @@
 
 ### First start
 
-The GUI of nocoDB can be accesed at http://nocodbappname.your.bibbox.domain/dashboard/ either 'setup' or 'signin' mode. The first user account made is the superadmin. Signup can be later restricted by the super admin to only invite URLs. 
+The GUI of nocoDB can be accesed at http://nocodbappname.your.bibbox.domain/dashboard/ either **sign-up** or **sign-in** mode. The first user account made is the superadmin. Signup can be later restricted by the super admin to only invite URLs. 
 
 ![SCREEN1](assets/setup-screen.png)
 
