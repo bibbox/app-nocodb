@@ -1,11 +1,10 @@
 ## nocoDB Installation Instructions 
 
-### Start nocoDB
+### First start
 
-In the first time login you can generate the super admin.
+The GUI of nocoDB can be accesed at http://nocodbappname.your.bibbox.domain/dashboard/ either in the setup or signin mode. The first user how setups an account is the superadmin. Signup can be later on restricted ny the super admin to only invite URLs. 
 
-### Test the e-mail configuration
-
+### e-mail configuration
 
 configuration of the email parameters can be tricky. if you need to test several configuration you can just edit the docker-compose.yml file, and restart the App. Finnaly this worked with mailjet. 
 
