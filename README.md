@@ -18,4 +18,6 @@ docker-compose up -d
 
 The main app can be opened at 
 
-`http://localhost:8010`
+```
+http://localhost:8010
+```
