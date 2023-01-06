@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-wordpress-db:
-    image: mariadb:10.1.21
+    image: postgres:15.1
     container_name: §§INSTANCE-wordpress-db
     restart: unless-stopped
     networks:
@@ -18,7 +18,7 @@ services:
       MYSQL_USER: §§MYSQL_USER
       MYSQL_PASSWORD: §§MYSQL_PASSWORD
     volumes:
-      - ./database/mysql:/var/lib/mysql
+      - ./data/pgsql/data:/var/lib/postgresql/data
 
   §§INSTANCE-wordpress-adminer:
     image: adminer
@@ -36,6 +36,5 @@ services:
       TEMPLATE: default
       DISPLAYNAME: 'Adminer'
     environment:
-      ADMINER_DEFAULT_DB_DRIVER: mysql
       ADMINER_DEFAULT_DB_HOST:   wordpress-db
       ADMINER_DEFAULT_DB_NAME:   wordpress
