@@ -5,28 +5,8 @@ networks:
       external: true
 
 services:
-  §§INSTANCE-nocodb:
-    container_name: §§INSTANCE-nocodb
-    environment:
-      NC_DB: "pg://nocodb-db:5432?u=§§POSTGRES_DATABASE_USER&p=§§POSTGRES_DATABASE_PASSWORD&d=nocodb"
-    links:
-    - §§INSTANCE-nocodb-db:nocodb-db
-    depends_on: 
-       §§INSTANCE-nocodb-db: 
-        condition: service_healthy
-    image: nocodb/nocodb:latest
-    ports:
-    - 8010:8080
-    proxy:
-      TYPE: PRIMARY
-      URLPREFIX: §§INSTANCE
-      TEMPLATE: default
-      DISPLAYNAME: 'nocodb' 
-    restart: unless-stopped
-    volumes: 
-      - ./data/nocodb/data:/usr/app/data
-
-  §§INSTANCE-nocodb-adminer:
+ 
+   §§INSTANCE-nocodb-adminer:
     container_name: §§INSTANCE-nocodb-adminer
     environment:
       ADMINER_DEFAULT_DB_DRIVER: postgres
@@ -38,7 +18,7 @@ services:
     ports:
     - 8020:8080
     proxy:
-      TYPE: HELPER
+      TYPE: PRIMARY
       URLPREFIX: §§INSTANCE-adminer
       TEMPLATE: default
       DISPLAYNAME: 'adminer' 
