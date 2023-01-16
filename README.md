@@ -10,8 +10,8 @@ nocoDB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/
 Clone the github repository. If necessary change the ports and volume mounts in `docker-compose.yml`.  
 
 ```
-git clone https://github.com/bibbox/app-jenkins
-cd app-jenkins
+git clone https://github.com/bibbox/app-nocodb
+cd app-nocodb
 mkdir data
 docker-compose up -d
 ```
@@ -19,5 +19,5 @@ docker-compose up -d
 The main app can be opened at 
 
 ```
-http://localhost
+http://localhost:8010
 ```
