@@ -2,7 +2,7 @@
 
 nocoDB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-* Initial user/password will need access to the BIBBOT APP server, to retrieve the default
+* initial user/password will be created at first login/signup
 * After the installation follow these [instructions](https://github.com/bibbox/app-nocodb/blob/master/INSTALL-APP.md)
 
 ## Standalone Installation
