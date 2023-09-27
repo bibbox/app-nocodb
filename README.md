@@ -1,23 +1,61 @@
-# nocoDB BIBBOX application
+# nocodb BIBBOX application
 
-nocoDB can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-* initial user/password will be created at first login/signup
-* After the installation follow these [instructions](https://github.com/bibbox/app-nocodb/blob/master/INSTALL-APP.md)
+- after the docker installation follow these [instructions](INSTALL-APP.md)
 
-## Standalone Installation
+## Standalone Installation 
 
-Clone the github repository. If necessary change the ports and volume mounts in `docker-compose.yml`.  
+Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
 
 ```
 git clone https://github.com/bibbox/app-nocodb
 cd app-nocodb
-mkdir data
 docker-compose up -d
 ```
 
-The main app can be opened at 
-
+The main app can be opened and set up at
 ```
 http://localhost:8010
 ```
+
+## Install within BIBBOX
+
+Visit the BIBBOX page and find the App by its name in the Store. Click on the symbol and select Install. Then fill the parameters below and name your app click install again.
+
+## Docker Images used
+  - [nocodb/nocodb](https://hub.docker.com/r/nocodb/nocodb) 
+  - [adminer](https://hub.docker.com/r/adminer) 
+  - [postgres](https://hub.docker.com/r/postgres) 
+
+
+ 
+## Install Environment Variables
+  - POSTGRES_DATABASE_USER = The User of the postgres DB created for NOCODB
+  - POSTGRES_DATABASE_PASSWORD = The Password of the postgres DB created for NOCODB
+  - NC_SMTP_FROM = Email sender address
+  - NC_SMTP_HOST = SMTP host value
+  - NC_SMTP_PORT = SMTP port
+  - NC_SMTP_USERNAME = SMTP username for authentication
+  - NC_SMTP_PASSWORD = SMTP password for authentication
+  - NC_SMTP_SECURE = To enable secure set  as true any other value treated as false
+  - NC_SMTP_IGNORE_TLS = To ignore tls set  as true any other value treated as false.
+
+  
+The default values for the standalone installation are:
+  - POSTGRES_DATABASE_USER = admin
+  - POSTGRES_DATABASE_PASSWORD = changethispasswordinproductionenvironments
+  - NC_SMTP_FROM = master@bibbox.org
+  - NC_SMTP_HOST = smtp.your-smtp-host.org
+  - NC_SMTP_PORT = 587
+  - NC_SMTP_USERNAME = master@bibbox.org
+  - NC_SMTP_PASSWORD = changethissmtppasswordinproductionenvironments
+  - NC_SMTP_SECURE = true
+  - NC_SMTP_IGNORE_TLS = true
+
+  
+## Mounted Volumes
+### nocodb/nocodb Conatiner
+  - *./data/nocodb/data:/usr/app/data*
+### postgres Conatiner
+  - *./data/pgsql/data:/var/lib/postgresql/data*
