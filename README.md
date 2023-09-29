@@ -56,8 +56,8 @@ The default values for the standalone installation are:
 
   
 ## Mounted Volumes
-### nocodb/nocodb Conatiner
+### nocodb/nocodb Container
   - *./data/nocodb/data:/usr/app/data*
-### postgres Conatiner
+### postgres Container
   - *./data/pgsql/data:/var/lib/postgresql/data*
 
