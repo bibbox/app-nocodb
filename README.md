@@ -4,6 +4,8 @@ This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en
 
 After the docker installation follow these [instructions](INSTALL-APP.md).
 
+Initial user/password will be created at first login/signup.
+
 ## Standalone Installation 
 
 Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
