@@ -6,5 +6,6 @@
 	"catalogue_url": "",
 	"application_url": "https://github.com/nocodb/nocodb",
 	"tags": ["Database", "Tool"],
-	"application_documentation_url": "https://docs.nocodb.com"
+	"application_documentation_url": "https://docs.nocodb.com",
+	"instance_information": "work in progress"
 }
