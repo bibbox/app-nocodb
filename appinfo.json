@@ -7,5 +7,5 @@
 	"application_url": "https://github.com/nocodb/nocodb",
 	"tags": ["Database", "Tool"],
 	"application_documentation_url": "https://docs.nocodb.com",
-	"instance_information": "work in progress"
+	"instance_information": "<p> NocoDB allows building no-code database solutions with ease of spreadsheets. </p>"
 }
