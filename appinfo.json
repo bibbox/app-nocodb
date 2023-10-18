@@ -1,7 +1,7 @@
 {
 	"name": "nocoDB",
 	"short_name": "nocoDB",
-	"version": "0.109.3",
+	"version": "v0.109.3",
 	"description": "NocoDB is an open source #NoCode platform that turns any database into a smart spreadsheet.",
 	"catalogue_url": "",
 	"application_url": "https://github.com/nocodb/nocodb",
